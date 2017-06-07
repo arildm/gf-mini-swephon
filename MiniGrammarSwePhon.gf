@@ -1,4 +1,4 @@
-concrete MiniGrammarSwe of MiniGrammar = open MiniResSwe, Prelude in {
+concrete MiniGrammarSwePhon of MiniGrammar = open MiniResSwePhon, Prelude in {
 
   lincat
     Utt = {s : Str} ;
@@ -33,7 +33,7 @@ concrete MiniGrammarSwe of MiniGrammar = open MiniResSwe, Prelude in {
         np.s ! Nom
         ++ case b of {
           True  => vp.verb.s ++ vp.verb.p ;
-          False => vp.verb.s ++ "inte" ++ vp.verb.p
+          False => vp.verb.s ++ "Int@" ++ vp.verb.p
           }
         ++ vp.compl ! np.a ;
       } ;
@@ -61,11 +61,11 @@ concrete MiniGrammarSwe of MiniGrammar = open MiniResSwe, Prelude in {
     UsePron p = {s = p.s ; a = Agr GN p.n ; d = case p.n of {Sg => Indef ; Pl => Def}} ;
     MassNP cn = {s = \\_ => cn.s ! Sg ! Indef ; a = Agr GT Sg} ;
 
-    a_Det     = {s = \\_ => table {GN => "en" ; GT => "ett"} ; n = Sg ; d = Indef} ;
+    a_Det     = {s = \\_ => table {GN => "En" ; GT => "Et"} ; n = Sg ; d = Indef} ;
     aPl_Det   = {s = \\_,_ => []                           ; n = Pl ; d = Indef} ;
-    the_Det   = {s = table {False => \\_ => [] ; True => table {GN => "den" ; GT => "det"}}
+    the_Det   = {s = table {False => \\_ => [] ; True => table {GN => "dEn" ; GT => "de"}}
                                                            ; n = Sg ; d = Def  } ;
-    thePl_Det = {s = table {False => \\_ => [] ; True => \\_ => "de"}
+    thePl_Det = {s = table {False => \\_ => [] ; True => \\_ => "dOm"}
                                                            ; n = Pl ; d = Def  } ;
     UseN n = n ** {fd = False};
     AdjCN ap cn = {
@@ -81,41 +81,41 @@ concrete MiniGrammarSwe of MiniGrammar = open MiniResSwe, Prelude in {
     PPos  = {s = [] ; b = True} ;
     PNeg  = {s = [] ; b = False} ;
 
-    and_Conj = {s = "och"} ;
-    or_Conj = {s = "eller"} ;
+    and_Conj = {s = "o"} ;
+    or_Conj = {s = "El:@R"} ;
 
-    every_Det = {s = \\_,_ => "varje" ; n = Sg ; d = Indef} ;
+    every_Det = {s = \\_,_ => "v'aRj@" ; n = Sg ; d = Indef} ;
 
-    in_Prep = {s = "i"} ;
-    on_Prep = {s = "på"} ;
-    with_Prep = {s = "med"} ;
+    in_Prep = {s = "i:"} ;
+    on_Prep = {s = "pO:"} ;
+    with_Prep = {s = "mE:"} ;
 
     i_Pron = {
-      s = table {Nom => "jag" ; Acc => "mig"} ;
+      s = table {Nom => "jA:" ; Acc => "mEI"} ;
       n = Sg
       } ;
     youSg_Pron = {
-      s = table {Nom => "du" ; Acc => "dig"} ;
+      s = table {Nom => "du\"" ; Acc => "dEI"} ;
       n = Sg
       } ;
     he_Pron = {
-      s = table {Nom => "han" ; Acc => "honom"} ;
+      s = table {Nom => "han:" ; Acc => "h'On:Om"} ;
       n = Sg
       } ;
     she_Pron = {
-      s = table {Nom => "hon" ; Acc => "henne"} ;
+      s = table {Nom => "hun:" ; Acc => "h'En:E"} ;
       n = Sg
       } ;
     we_Pron = {
-      s = table {Nom => "vi" ; Acc => "oss"} ;
+      s = table {Nom => "vi:" ; Acc => "Os:"} ;
       n = Pl
       } ;
     youPl_Pron = {
-      s = table {Nom => "ni" ; Acc => "er"} ;
+      s = table {Nom => "ni:" ; Acc => "e:R"} ;
       n = Pl
       } ;
     they_Pron = {
-      s = table {Nom => "de" ; Acc => "dem"} ;
+      s = table {Nom => "dOm:" ; Acc => "dOm:"} ;
       n = Pl
       } ;
 

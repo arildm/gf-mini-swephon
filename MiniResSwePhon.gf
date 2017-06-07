@@ -1,4 +1,4 @@
-resource MiniResSwe = open Prelude in {
+resource MiniResSwePhon = open Prelude in {
 
 param
   Number = Sg | Pl ;

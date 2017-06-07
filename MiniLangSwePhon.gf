@@ -1,1 +1,1 @@
-concrete MiniLangSwe of MiniLang = MiniGrammarSwe, MiniLexiconSwe ;
+concrete MiniLangSwePhon of MiniLang = MiniGrammarSwePhon, MiniLexiconSwePhon ;

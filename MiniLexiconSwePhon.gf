@@ -1,18 +1,19 @@
-concrete MiniLexiconSwe of MiniLexicon = MiniGrammarSwe ** open MiniResSwe in {
-lin already_Adv = mkAdv "redan" ;
-lin animal_N = mkN "djur" ;
-lin apple_N = mkN "äpple" PlN ;
-lin baby_N = mkN "bebis" Ar ;
-lin bad_A = mkA "dålig" ;
-lin beer_N = mkN "öl" Er GT ;
-lin big_A = mkA "stor" ;
-lin bike_N = mkN "cykel" Ar ;
-lin bird_N = mkN "fågel" Ar ;
-lin black_A = mkA "svart" ;
-lin blood_N = mkN "blod" ;
-lin blue_A = mkA "blå" ;
-lin boat_N = mkN "båt" Ar ;
-lin book_N = mkN "bok" "böcker" GN ;
+concrete MiniLexiconSwePhon of MiniLexicon = MiniGrammarSwePhon ** open MiniResSwePhon in {
+lin already_Adv = mkAdv "R'e:dan" ;
+lin animal_N = mkN "ju\":R" ;
+lin apple_N = mkN "'Ep:lE" PlN ;
+lin baby_N = mkN "b'E:bIs" Ar ;
+lin bad_A = mkA "d'o:lI" ;
+lin beer_N = mkN "Y:l" Er GT ;
+lin big_A = mkA "stu:R" ;
+lin bike_N = mkN "s'yk:@l" Ar ;
+lin bird_N = mkN "f'o:g@l" Ar ;
+lin black_A = mkA "svat.:" ;
+lin blood_N = mkN "blu:d" ;
+lin blue_A = mkA "blo:" ;
+lin boat_N = mkN "bo:t" Ar ;
+lin book_N = mkN "bu:k" "b'Yk:@r" GN ;
+{-
 lin boy_N = mkN "pojke" Ar ;
 lin bread_N = mkN "bröd" ;
 lin break_V2 = mkV2 "har sönder" ;
@@ -86,4 +87,5 @@ lin wine_N = mkN "vin" Er GT ;
 lin woman_N = mkN "kvinna" Or ;
 lin yellow_A = mkA "gul" ;
 lin young_A = mkA "ung" ;
+-}
 }

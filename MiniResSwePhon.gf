@@ -22,7 +22,7 @@ oper
   stem : Str -> Str = \w -> case w of {
     s + ("a" | "e" | "o") => s ;
     -- Assumes the e is unstressed; will not work with e.g. "fel".
-    s + "e" + fin@("r" | "l" | "n") => s + fin ;
+    s + "@" + fin@("r" | "l" | "n") => s + fin ;
     _ => w
     } ;
 
@@ -33,7 +33,7 @@ oper
       <_                    , ("a" | "e" | "o") + _> => stem + suf ;
       <_ + ("a" | "e" | "o"), _                    > => w + suf ;
       <_                    , ("t") + _            > => stem + "e" + suf ;
-      <_ + ("el" | "er")    , _                    > => w + suf ;
+      <_ + ("@l" | "@r")    , _                    > => w + suf ;
       <_                    , _                    > => w + "e" + suf
       } ;
 
@@ -43,23 +43,23 @@ oper
     -- Usually, the sg form and a PluralForm param is enough.
     -- Guess Gender from given PluralForm. Seems like only -er is really unpredictable.
     mkN : Str -> PluralForm -> Noun = \sg,pf -> case pf of {
-      Ar  => mkNoun sg (suffix sg "n") (suffix sg "ar") (suffix sg "arna") GN ;
-      Or  => mkNoun sg (suffix sg "n") (suffix sg "or") (suffix sg "orna") GN ;
-      Er  => mkNoun sg (suffix sg "n") (suffix sg "er") (suffix sg "erna") GN ;
+      Ar  => mkNoun sg (suffix sg "n") (suffix sg "aR") (suffix sg "an.a") GN ;
+      Or  => mkNoun sg (suffix sg "n") (suffix sg "oR") (suffix sg "on.a") GN ;
+      Er  => mkNoun sg (suffix sg "n") (suffix sg "@R") (suffix sg "@n.a") GN ;
       PlN => mkNoun sg (suffix sg "t") (suffix sg "n" ) (suffix sg "na"  ) GT ;
-      PlX => mkNoun sg (suffix sg "t") sg               (suffix sg "en"  ) GT
+      PlX => mkNoun sg (suffix sg "t") sg               (suffix sg "@n"  ) GT
       } ;
 
     -- Default to PlX.
-    mkN : Str -> Noun = \sg -> mkNoun sg (suffix sg "t") sg (suffix sg "en") GT ;
+    mkN : Str -> Noun = \sg -> mkNoun sg (suffix sg "t") sg (suffix sg "@n") GT ;
 
     -- Allow specifying a Gender explicitly.
     mkN : Str -> PluralForm -> Gender -> Noun = \sg,pf,g -> case pf of {
-      Ar  => mkNoun sg (suffix sg (selNT g)) (suffix sg "ar") (suffix sg "arna") g ;
-      Or  => mkNoun sg (suffix sg (selNT g)) (suffix sg "or") (suffix sg "orna") g ;
-      Er  => mkNoun sg (suffix sg (selNT g)) (suffix sg "er") (suffix sg "erna") g ;
+      Ar  => mkNoun sg (suffix sg (selNT g)) (suffix sg "aR") (suffix sg "an.a") g ;
+      Or  => mkNoun sg (suffix sg (selNT g)) (suffix sg "oR") (suffix sg "on.a") g ;
+      Er  => mkNoun sg (suffix sg (selNT g)) (suffix sg "@R") (suffix sg "@n.a") g ;
       PlN => mkNoun sg (suffix sg (selNT g)) (suffix sg "n" ) (suffix sg "na"  ) g ;
-      PlX => mkNoun sg (suffix sg (selNT g)) sg               (suffix sg "en"  ) g
+      PlX => mkNoun sg (suffix sg (selNT g)) sg               (suffix sg "@n"  ) g
       } ;
 
     -- Irregular plural form, regular definite forms.
@@ -110,7 +110,7 @@ oper
     mkV2 : Str -> Str -> Verb2 = \s,p -> (mkV s) ** {c = p} ;
     } ;
 
-  copula : Verb = mkV "är" ;
+  copula : Verb = mkV "e:" ;
 
   mkAdv : Str -> {s : Str} = \s -> {s = s} ;
 

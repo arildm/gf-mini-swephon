@@ -39,16 +39,16 @@ concrete MiniGrammarSwePhon of MiniGrammar = open MiniResSwePhon, Prelude in {
       } ;
       
     UseV v = {
-      verb = v ;
+      verb = {s = "F" ++ v.s; p = v.p} ;
       compl = \\a => [];
       } ;
     ComplV2 v2 np = {
       verb = v2 ;
-      compl = \\a => v2.c ++ np.s ! Acc;
+      compl = \\a => "F" ++ v2.c ++ np.s ! Acc;
       } ;
     UseAP ap = {
       verb = copula ;
-      compl = \\a => ap.s ! a ! Indef;
+      compl = \\a => "F" ++ ap.s ! a ! Indef;
       } ;
     AdvVP vp adv =
       vp ** {compl = \\a => vp.compl ! a ++ adv.s} ;
@@ -91,31 +91,31 @@ concrete MiniGrammarSwePhon of MiniGrammar = open MiniResSwePhon, Prelude in {
     with_Prep = {s = "mE:"} ;
 
     i_Pron = {
-      s = table {Nom => "jA:" ; Acc => "mEI"} ;
+      s = table {Nom => "j,A:" ; Acc => "m,EI"} ;
       n = Sg
       } ;
     youSg_Pron = {
-      s = table {Nom => "du\"" ; Acc => "dEI"} ;
+      s = table {Nom => "d,u-:" ; Acc => "d,EI"} ;
       n = Sg
       } ;
     he_Pron = {
-      s = table {Nom => "han" ; Acc => "h,On:Om"} ;
+      s = table {Nom => "h,an" ; Acc => "h,On:Om"} ;
       n = Sg
       } ;
     she_Pron = {
-      s = table {Nom => "hUn" ; Acc => "h,En:E"} ;
+      s = table {Nom => "h,Un" ; Acc => "h,En:E"} ;
       n = Sg
       } ;
     we_Pron = {
-      s = table {Nom => "vi:" ; Acc => "Os:"} ;
+      s = table {Nom => "v,i:" ; Acc => ",Os:"} ;
       n = Pl
       } ;
     youPl_Pron = {
-      s = table {Nom => "ni:" ; Acc => "e:R"} ;
+      s = table {Nom => "n,i:" ; Acc => ",e:R"} ;
       n = Pl
       } ;
     they_Pron = {
-      s = table {Nom => "dOm" ; Acc => "dOm"} ;
+      s = table {Nom => "d,Om" ; Acc => "d,Om"} ;
       n = Pl
       } ;
 

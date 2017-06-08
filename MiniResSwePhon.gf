@@ -29,12 +29,12 @@ oper
   suffix : Str -> Str -> Str = \w,suf -> let stem = (stem w) in
     case <w,suf> of {
       -- These rules were found out by examining a list of correctly suffixed words.
-      <_                    , ""                   > => w ;
-      <_                    , ("a" | "e" | "o") + _> => stem + suf ;
-      <_ + ("a" | "e" | "o"), _                    > => w + suf ;
-      <_                    , ("t") + _            > => stem + "e" + suf ;
-      <_ + ("@l" | "@r")    , _                    > => w + suf ;
-      <_                    , _                    > => w + "e" + suf
+      <_                          , ""                   > => w ;
+      <_                          , ("a" | "@" | "o") + _> => stem + suf ;
+      <_ + ("a" | "e" | "o" | "@"), _                    > => w + suf ;
+      <_                          , ("t") + _            > => stem + "@" + suf ;
+      <_ + ("@l" | "@r")          , _                    > => w + suf ;
+      <_                          , _                    > => w + "@" + suf
       } ;
 
   selNT : Gender -> Str = \g -> case g of {GN => "n" ; GT => "t"} ;

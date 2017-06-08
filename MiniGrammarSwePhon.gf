@@ -33,7 +33,7 @@ concrete MiniGrammarSwePhon of MiniGrammar = open MiniResSwePhon, Prelude in {
         np.s ! Nom
         ++ case b of {
           True  => vp.verb.s ++ vp.verb.p ;
-          False => vp.verb.s ++ "'Int@" ++ vp.verb.p
+          False => vp.verb.s ++ ",Int@" ++ vp.verb.p
           }
         ++ vp.compl ! np.a ;
       } ;
@@ -84,7 +84,7 @@ concrete MiniGrammarSwePhon of MiniGrammar = open MiniResSwePhon, Prelude in {
     and_Conj = {s = "o"} ;
     or_Conj = {s = "El:@R"} ;
 
-    every_Det = {s = \\_,_ => "v'aRj@" ; n = Sg ; d = Indef} ;
+    every_Det = {s = \\_,_ => "v,aRj@" ; n = Sg ; d = Indef} ;
 
     in_Prep = {s = "i:"} ;
     on_Prep = {s = "pO:"} ;
@@ -99,11 +99,11 @@ concrete MiniGrammarSwePhon of MiniGrammar = open MiniResSwePhon, Prelude in {
       n = Sg
       } ;
     he_Pron = {
-      s = table {Nom => "han" ; Acc => "h'On:Om"} ;
+      s = table {Nom => "han" ; Acc => "h,On:Om"} ;
       n = Sg
       } ;
     she_Pron = {
-      s = table {Nom => "hun" ; Acc => "h'En:E"} ;
+      s = table {Nom => "hUn" ; Acc => "h,En:E"} ;
       n = Sg
       } ;
     we_Pron = {

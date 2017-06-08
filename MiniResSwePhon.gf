@@ -20,8 +20,7 @@ oper
     } ;
 
   stem : Str -> Str = \w -> case w of {
-    s + ("a" | "e" | "o") => s ;
-    -- Assumes the e is unstressed; will not work with e.g. "fel".
+    s + ("a" | "e" | "o" | "@") => s ;
     s + "@" + fin@("r" | "l" | "n") => s + fin ;
     _ => w
     } ;
@@ -31,7 +30,7 @@ oper
       -- These rules were found out by examining a list of correctly suffixed words.
       <_                          , ""                   > => w ;
       <_                          , ("a" | "@" | "o") + _> => stem + suf ;
-      <_ + ("a" | "e" | "o" | "@"), _                    > => w + suf ;
+      <_ + ("a" | "e" | "E" | "o" | "@"), _              > => w + suf ;
       <_                          , ("t") + _            > => stem + "@" + suf ;
       <_ + ("@l" | "@r")          , _                    > => w + suf ;
       <_                          , _                    > => w + "@" + suf

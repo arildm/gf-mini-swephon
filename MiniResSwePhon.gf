@@ -29,8 +29,8 @@ oper
     case <w,suf> of {
       -- These rules were found out by examining a list of correctly suffixed words.
       <_                          , ""                   > => w ;
-      <_                          , ("a" | "@" | "o") + _> => stem + suf ;
-      <_ + ("a" | "e" | "E" | "o" | "@"), _              > => w + suf ;
+      <_                          , ("a" | "@" | "o" | "U") + _> => stem + suf ;
+      <_ + ("a" | "e" | "E" | "o" | "@" | "u") + (":")*, _              > => w + suf ;
       <_                          , ("t") + _            > => stem + "@" + suf ;
       <_ + ("@l" | "@r")          , _                    > => w + suf ;
       <_                          , _                    > => w + "@" + suf
@@ -42,9 +42,9 @@ oper
     -- Usually, the sg form and a PluralForm param is enough.
     -- Guess Gender from given PluralForm. Seems like only -er is really unpredictable.
     mkN : Str -> PluralForm -> Noun = \sg,pf -> case pf of {
-      Ar  => mkNoun sg (suffix sg "n") (suffix sg "aR") (suffix sg "an.a") GN ;
-      Or  => mkNoun sg (suffix sg "n") (suffix sg "oR") (suffix sg "on.a") GN ;
-      Er  => mkNoun sg (suffix sg "n") (suffix sg "@R") (suffix sg "@n.a") GN ;
+      Ar  => mkNoun sg (suffix sg "n") (suffix sg "aR") (suffix sg "aRna") GN ;
+      Or  => mkNoun sg (suffix sg "n") (suffix sg "UR") (suffix sg "URna") GN ;
+      Er  => mkNoun sg (suffix sg "n") (suffix sg "@R") (suffix sg "@Rna") GN ;
       PlN => mkNoun sg (suffix sg "t") (suffix sg "n" ) (suffix sg "na"  ) GT ;
       PlX => mkNoun sg (suffix sg "t") sg               (suffix sg "@n"  ) GT
       } ;
@@ -54,9 +54,9 @@ oper
 
     -- Allow specifying a Gender explicitly.
     mkN : Str -> PluralForm -> Gender -> Noun = \sg,pf,g -> case pf of {
-      Ar  => mkNoun sg (suffix sg (selNT g)) (suffix sg "aR") (suffix sg "an.a") g ;
-      Or  => mkNoun sg (suffix sg (selNT g)) (suffix sg "oR") (suffix sg "on.a") g ;
-      Er  => mkNoun sg (suffix sg (selNT g)) (suffix sg "@R") (suffix sg "@n.a") g ;
+      Ar  => mkNoun sg (suffix sg (selNT g)) (suffix sg "aR") (suffix sg "aRna") g ;
+      Or  => mkNoun sg (suffix sg (selNT g)) (suffix sg "UR") (suffix sg "URna") g ;
+      Er  => mkNoun sg (suffix sg (selNT g)) (suffix sg "@R") (suffix sg "@Rna") g ;
       PlN => mkNoun sg (suffix sg (selNT g)) (suffix sg "n" ) (suffix sg "na"  ) g ;
       PlX => mkNoun sg (suffix sg (selNT g)) sg               (suffix sg "@n"  ) g
       } ;

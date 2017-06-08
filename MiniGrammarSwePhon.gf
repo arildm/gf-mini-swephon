@@ -44,7 +44,7 @@ concrete MiniGrammarSwePhon of MiniGrammar = open MiniResSwePhon, Prelude in {
       } ;
     ComplV2 v2 np = {
       verb = v2 ;
-      compl = \\a => "F" ++ v2.c ++ np.s ! Acc;
+      compl = \\a => v2.c ++ "F" ++ np.s ! Acc;
       } ;
     UseAP ap = {
       verb = copula ;

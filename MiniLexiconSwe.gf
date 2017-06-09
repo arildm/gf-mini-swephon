@@ -86,4 +86,11 @@ lin wine_N = mkN "vin" Er GT ;
 lin woman_N = mkN "kvinna" Or ;
 lin yellow_A = mkA "gul" ;
 lin young_A = mkA "ung" ;
+
+lin short_A = mkA "kort" ;
+lin card_N = mkN "kort" ;
+lin spirit_N = mkN "ande" Ar ;
+lin mallard_N = mkN "and" "änder" GN ;
+lin knot_N = mkN "knut" Ar ;
+lin tied_A = mkA "knuten" "knutet" "knutna" ;
 }

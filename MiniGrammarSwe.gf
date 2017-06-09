@@ -59,7 +59,7 @@ concrete MiniGrammarSwe of MiniGrammar = open MiniResSwe, Prelude in {
       } ;
     UsePN pn = {s = \\_ => pn.s ; a = Agr GN Sg } ;
     UsePron p = {s = p.s ; a = Agr GN p.n ; d = case p.n of {Sg => Indef ; Pl => Def}} ;
-    MassNP cn = {s = \\_ => cn.s ! Sg ! Indef ; a = Agr GT Sg} ;
+    MassNP cn = {s = \\_ => cn.s ! Sg ! Indef ; a = Agr cn.g Sg} ;
 
     a_Det     = {s = \\_ => table {GN => "en" ; GT => "ett"} ; n = Sg ; d = Indef} ;
     aPl_Det   = {s = \\_,_ => []                           ; n = Pl ; d = Indef} ;

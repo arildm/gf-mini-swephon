@@ -59,7 +59,7 @@ concrete MiniGrammarSwePhon of MiniGrammar = open MiniResSwePhon, Prelude in {
       } ;
     UsePN pn = {s = \\_ => pn.s ; a = Agr GN Sg } ;
     UsePron p = {s = p.s ; a = Agr GN p.n ; d = case p.n of {Sg => Indef ; Pl => Def}} ;
-    MassNP cn = {s = \\_ => cn.s ! Sg ! Indef ; a = Agr GT Sg} ;
+    MassNP cn = {s = \\_ => cn.s ! Sg ! Indef ; a = Agr cn.g Sg} ;
 
     a_Det     = {s = \\_ => table {GN => "En" ; GT => "Et"} ; n = Sg ; d = Indef} ;
     aPl_Det   = {s = \\_,_ => []                           ; n = Pl ; d = Indef} ;
@@ -84,7 +84,7 @@ concrete MiniGrammarSwePhon of MiniGrammar = open MiniResSwePhon, Prelude in {
     and_Conj = {s = "o"} ;
     or_Conj = {s = "El:@R"} ;
 
-    every_Det = {s = \\_,_ => "v,aRj@" ; n = Sg ; d = Indef} ;
+    every_Det = {s = \\_,_ => "v,aRjE" ; n = Sg ; d = Indef} ;
 
     in_Prep = {s = "i:"} ;
     on_Prep = {s = "pO:"} ;

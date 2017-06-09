@@ -88,4 +88,10 @@ fun
   yellow_A : A ;
   young_A : A ;
 
+  short_A : A ;     -- kort
+  card_N : N ;      -- kort
+  spirit_N : N ;    -- ande+n
+  mallard_N : N ;   -- and+en
+  knot_N : N ;      -- knut+en
+  tied_A : A ;      -- knuten
 }

@@ -82,7 +82,7 @@ oper
     } ;
 
   addT : Str -> Str = \w -> case w of {
-    stem + ("r" | "l") + "t" => w ;
+    stem + ("R" | "l") + "t" => w ;
     _ => w + "t"
     } ;
 

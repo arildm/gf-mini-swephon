@@ -62,7 +62,7 @@ lin paris_PN = mkPN "Paris" ;
 lin play_V = mkV "leker" ;
 lin read_V2 = mkV2 "läser" ;
 lin ready_A = mkA "klar" ;
-lin red_A = mkA "röd" ;
+lin red_A = mkA "röd" "rött" "röda" ;
 lin river_N = mkN "älv" Ar ;
 lin run_V = mkV "springer" ;
 lin sea_N = mkN "hav" ;
@@ -93,4 +93,6 @@ lin spirit_N = mkN "ande" Ar ;
 lin mallard_N = mkN "and" "änder" GN ;
 lin knot_N = mkN "knut" Ar ;
 lin tied_A = mkA "knuten" "knutet" "knutna" ;
+
+lin happy_A = mkA "glad" "glatt" "glada" ;
 }

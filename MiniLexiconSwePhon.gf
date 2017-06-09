@@ -62,7 +62,7 @@ lin paris_PN = mkPN "paR,i:s" ;
 lin play_V = mkV "l,e:k@R" ;
 lin read_V2 = mkV2 "l,E:s@R" ;
 lin ready_A = mkA "kl,A:R" ;
-lin red_A = mkA "R,Y:d" "R,Wt:" "R,Y:da" ;
+lin red_A = mkA "R,Y:d" ;
 lin river_N = mkN ",El:v" Ar ;
 lin run_V = mkV "spR,IN@R" ;
 lin sea_N = mkN "h,A:v" ;
@@ -93,4 +93,6 @@ lin spirit_N = mkN ",andE" Ar ;
 lin mallard_N = mkN ",and" ",End@R" GN ;
 lin knot_N = mkN "kn,u-:t" Ar ;
 lin tied_A = mkA "kn,u-:tEn" "kn,u-tEt" "kn,u-tna" ;
+
+lin happy_A = mkA "gl,A:d" ;
 }

@@ -94,4 +94,6 @@ fun
   mallard_N : N ;   -- and+en
   knot_N : N ;      -- knut+en
   tied_A : A ;      -- knuten
+
+  happy_A : A ;     -- glad/glatt
 }

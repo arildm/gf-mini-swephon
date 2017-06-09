@@ -82,8 +82,22 @@ oper
     } ;
 
   addT : Str -> Str = \w -> case w of {
-    stem + ("R" | "l") + "t" => w ;
-    _ => w + "t"
+    stem + ("R" | "l") + "t" => w ;                     -- svart
+    a + v@("A"|"e"|"i"|"u-"|"u"|"y"|"o"|"E"|"Y") + ":" + ("d" | "t")
+                             => a + (vshort v) + "t:" ; -- rött
+    _                        => w + "t"                 -- grönt
+    } ;
+
+  vshort : Str -> Str = \long -> case long of {
+    "A" => "a" ;
+    "e" => "E" ;
+    "i" => "I" ;
+    "u" => "U" ; -- O?
+    "u-" => "8" ;
+    "y" => "Y" ;
+    "o" => "O" ;
+    "E" => "E" ;
+    "Y" => "W"
     } ;
 
   mkA = overload {

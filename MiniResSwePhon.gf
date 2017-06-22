@@ -20,7 +20,7 @@ oper
     } ;
 
   stem : Str -> Str = \w -> case w of {
-    s + ("a" | "e" | "o" | "@") => s ;
+    s + ("a" | "e" | "E" | "o" | "@") => s ;
     s + "@" + fin@("r" | "l" | "n") => s + fin ;
     _ => w
     } ;

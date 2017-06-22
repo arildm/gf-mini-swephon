@@ -1,7 +1,7 @@
 #!/bin/bash
-gf --make MiniLangSwe.gf MiniLangSwePhon.gf
-gfcmd="gr -cat=Cl -lang=Swe | lin -lang=SwePhon"
-phon=$(echo "$gfcmd" | gf --run MiniLangSwe.gf MiniLangSwePhon.gf)
+gf --make MiniLangSwePhon.gf
+gfcmd="gr -cat=Cl | lin -lang=SwePhon"
+phon=$(echo "$gfcmd" | gf --run MiniLangSwePhon.gf)
 phon=$(./focusprocess.sh "$phon")
 echo $phon
 espeak -v sv --ipa "[[$phon]]"
